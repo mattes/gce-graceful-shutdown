@@ -57,7 +57,9 @@ func main() {
 	// instance template is no longer active ...
 	log.Println("Instance Template has been removed from Instance Group")
 	log.Println("Waiting for -on-shutdown command to finish ...")
-	if err := runCommand(config.OnShutdown, config.Timeout); err != nil {
+
+	// give it another 5 seconds to accommodate overhead of commands like `docker stop --time n my-container`
+	if err := runCommand(config.OnShutdown, config.Timeout+5*time.Second); err != nil {
 		log.Printf("WARNING: -on-shutdown command failed: %v", err)
 	}
 
