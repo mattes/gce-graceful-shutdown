@@ -4,6 +4,12 @@ This tool monitors an Instance Group for changes. The moment the given Instance 
 is no longer part of the monitored Instance Group, `on-shutdown` is run. Afterwards
 the Instance is deleted via an API call.
 
+It does not currently trigger if:
+
+* Instance is deleted
+* Instance is restarted
+
+
 ## Motivation
 
 Google Shutdown Scripts are unreliable and only run for 60-90s max.
