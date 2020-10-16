@@ -8,6 +8,7 @@ It does not currently trigger if:
 
 * Instance is deleted
 * Instance is restarted
+* Instance is re-created during autohealing
 
 
 ## Motivation
