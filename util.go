@@ -32,7 +32,7 @@ func isActive(s *compute.Service, project, region, instanceGroup, instanceTempla
 	found := false
 	for _, v := range ig.Versions {
 		if v.TargetSize.Calculated > 0 {
-			if strings.EqualFold(strings.TrimSpace(v.Name), instanceTemplate) {
+			if strings.Contains(strings.TrimSpace(v.Name), strings.TrimSpace(instanceTemplate)) {
 				found = true
 				break
 			}
